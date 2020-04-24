@@ -9,6 +9,8 @@ const collection = "todo";
 const app = express();
 require('dotenv').config();
 
+mongoose = require('mongoose'); // test
+
 const schema =  Joi.object().keys({
     todo : Joi.string().required()
 });
@@ -108,7 +110,7 @@ app.post('/',(req,res)=>{
 
 });
  
-url.connect(process.env.MONGO_URL);
+mongoose.connect(process.env.MONGO_URL);
 db.connect((err)=>{
     if(err){
         console.log('unable to connect to the database');
