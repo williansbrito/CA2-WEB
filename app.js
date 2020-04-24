@@ -3,15 +3,18 @@ const bodyParser = require ("body-parser");
 const path = require ('path');
 const Joi = require ('joi');
 
+
 const db = require("./db");
 const collection = "todo";
 const app = express();
+require('dotenv').config();
 
 const schema =  Joi.object().keys({
     todo : Joi.string().required()
 });
 
 app.use(bodyParser.json());
+
 
 
 app.get('/',(req,res) =>{
