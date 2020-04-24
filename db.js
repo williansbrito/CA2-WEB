@@ -12,7 +12,7 @@ const state = {
     db:null
 };
 
-const connect =(cb)=>{
+const connect =(cb,url)=>{
         if(state.db)
         
     cb();
