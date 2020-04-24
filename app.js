@@ -7,7 +7,7 @@ const Joi = require ('joi');
 const db = require("./db");
 const collection = "todo";
 const app = express();
-require('dotenv').config();
+//require('dotenv').config();
 
 const schema =  Joi.object().keys({
     todo : Joi.string().required()
