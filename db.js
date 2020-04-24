@@ -1,7 +1,7 @@
 const MongoClient = require("mongodb").MongoClient;
 const ObjectID = require('mongodb').ObjectID;
 const dbname = "crud_mongodb";
-const url = '';
+const url = 'MONGO_URL';
 const mongoOptions = {
     useNewUrlParser : true,
     useUnifiedTopology: true
