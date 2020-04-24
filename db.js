@@ -13,8 +13,7 @@ const state = {
 };
 
 const connect =(cb)=>{
-        if(state.db)
-        
+        if(state.db)        
     cb();
     else{        
         MongoClient.connect(process.env.MONGO_URL,mongoOptions,url,(err,client)=>{
