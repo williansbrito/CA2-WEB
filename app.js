@@ -108,8 +108,8 @@ app.post('/',(req,res)=>{
 
 });
  
-db.connect(process.env.MONGO_URL);
-db.connect((err)=>{
+//db.connect(process.env.MONGO_URL);
+db.connect(process.env.MONGO_URL, (err)=>{
     if(err){
         console.log('unable to connect to the database');
         process.exit(1);
