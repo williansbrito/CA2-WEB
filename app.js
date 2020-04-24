@@ -110,7 +110,7 @@ app.post('/',(req,res)=>{
 
 });
  
-mongoose.connect(process.env.MONGO_URL);
+mongoose.connect(process.env.MONGO_URL,url);
 db.connect((err)=>{
     if(err){
         console.log('unable to connect to the database');
