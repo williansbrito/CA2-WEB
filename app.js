@@ -2,7 +2,7 @@ const express = require ('express');
 const bodyParser = require ("body-parser");
 const path = require ('path');
 const Joi = require ('joi');
-var PORT = process.env.PORT || 5000;
+var PORT = process.env.PORT || 3000;
 
 const db = require("./db");
 const collection = "todo";
