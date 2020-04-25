@@ -2,14 +2,10 @@ const express = require ('express');
 const bodyParser = require ("body-parser");
 const path = require ('path');
 const Joi = require ('joi');
-
-
 const db = require("./db");
 const collection = "todo";
 const app = express();
 require('dotenv').config();
-
-
 
 const schema =  Joi.object().keys({
     todo : Joi.string().required()
@@ -18,7 +14,7 @@ const schema =  Joi.object().keys({
 app.use(bodyParser.json());
 
 
-//get 
+//get request
 app.get('/',(req,res) =>{
    res.sendFile(path.join(__dirname, 'index.html'));
 });
@@ -35,7 +31,7 @@ if(err)
 
 });
 
-//update 
+//update request
 app.put('/:id',(req,res)=>{
 const todoID = req.params.id;
 const userInput = req.body;
@@ -51,7 +47,7 @@ const userInput = req.body;
 });
 
 
-//post
+//post request //alert message validation
 app.post('/', (req,res,next)=>{
 
     const userInput = req.body;
@@ -78,7 +74,7 @@ app.post('/', (req,res,next)=>{
 
 });
 
-//delete
+//delete request
 app.delete('/:id',(req,res)=>{
 
     const todoID = req.params.id;
@@ -101,7 +97,7 @@ app.use((err,req,res,next)=>{
     });
 })
 
-
+//post request
 app.post('/',(req,res)=>{
     const userInput = req.body;
     db.getDB().collection(collection).insertOne(userInput,(err,result)=>{
@@ -113,6 +109,7 @@ app.post('/',(req,res)=>{
 
 });
  
+// connection to the mongodb and heroku
 db.connect((err)=>{
     if(err){
         console.log('unable to connect to the database');
@@ -125,3 +122,5 @@ db.connect((err)=>{
     }
 
 })
+
+//Code based on https://www.youtube.com/watch?v=CyTWPr_WwdI to be created

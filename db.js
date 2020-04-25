@@ -7,17 +7,12 @@ const mongoOptions = {
     useUnifiedTopology: true
 };
 
-
-
-
-
-
-
 const state = {
 
     db:null
 };
 
+//mongdb connection
 const connect =(cb)=>{
         if(state.db)        
     cb();
@@ -42,3 +37,5 @@ const connect =(cb)=>{
     }
 
     module.exports = {getDB,connect,getPrimaryKey};
+
+//Code based on https://www.youtube.com/watch?v=CyTWPr_WwdI to be created
