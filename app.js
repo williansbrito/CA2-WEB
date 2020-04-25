@@ -2,7 +2,7 @@ const express = require ('express');
 const bodyParser = require ("body-parser");
 const path = require ('path');
 const Joi = require ('joi');
-//mongoose = require('mongoose'); //test
+
 
 const db = require("./db");
 const collection = "todo";
@@ -113,7 +113,6 @@ app.post('/',(req,res)=>{
 
 });
  
-//mongoose.connect(process.env.MONGO_URL);
 db.connect((err)=>{
     if(err){
         console.log('unable to connect to the database');
