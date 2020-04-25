@@ -8,6 +8,11 @@ const mongoOptions = {
 };
 
 
+
+
+
+
+
 const state = {
 
     db:null
@@ -17,7 +22,7 @@ const connect =(cb)=>{
         if(state.db)        
     cb();
     else{        
-        MongoClient.connect(process.env.MONGO_URL,mongoOptions,url,(err,client)=>{
+        MongoClient.connect(process.env.DB,mongoOptions,url,(err,client)=>{
             if(err)
              cb(err);
             else{

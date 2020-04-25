@@ -2,14 +2,14 @@ const express = require ('express');
 const bodyParser = require ("body-parser");
 const path = require ('path');
 const Joi = require ('joi');
-//var PORT = process.env.PORT || 3000;
+//mongoose = require('mongoose'); //test
 
 const db = require("./db");
 const collection = "todo";
 const app = express();
 require('dotenv').config();
 
-//mongoose = require('mongoose'); // test
+
 
 const schema =  Joi.object().keys({
     todo : Joi.string().required()
@@ -120,7 +120,7 @@ db.connect((err)=>{
         process.exit(1);
     }
     else{
-        app.listen(process.env.PORT || 3000,()=>{ //testin here  app.listen(3000,()=>{
+        app.listen(process.env.PORT || 3000,()=>{ 
             console.log('connected to database, app listening on port 3000');
         });
     }
