@@ -120,7 +120,7 @@ db.connect((err)=>{
         process.exit(1);
     }
     else{
-        app.listen(3000,()=>{
+        app.listen(process.env.PORT || 3000,()=>{ //testin here  app.listen(3000,()=>{
             console.log('connected to database, app listening on port 3000');
         });
     }
