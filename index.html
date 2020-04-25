@@ -1,10 +1,9 @@
 <!doctype html>
+
+  <!-- Code based on https://www.youtube.com/watch?v=CyTWPr_WwdI to be created-->
 <html lang="en">
   <head>
   <meta charset="utf-8">
-	
-
-
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
@@ -14,9 +13,9 @@
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/litera/bootstrap.min.css">
     
   </head>
+  	<!-- Navigation bar-->
   <body background="#A6B3C4">
-	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
 		<div class="container">	<a class="navbar-brand" href="#">STEP - Dance & Perfomance School</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">	<span class="navbar-toggler-icon"></span>
 			</button>
@@ -24,7 +23,7 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active"><a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a></li>
 					<li class="nav-item"><a class="nav-link" onclick="document.getElementById('id01').style.display='block'">Login</a></li> <!-- Opens the login block-->
-                    <li class="nav-item"><a class="nav-link" href="#">Classes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Classes Enroll</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">About</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
 				</ul>
@@ -42,11 +41,6 @@
 		</div>
 	</div>
 
-
-
-
-
-
 <!-- Home page details -->
 <div class="card-deck">
   <div class="card mt-5"> 
@@ -61,7 +55,6 @@
             <p class="text-justify">The Ballet Dance classes are divide in Beginner, Intermadiate, Advanced and Individual.</p> 
             <p class="text-justify">   Our fees varies according to the student level.</p>
             </p>
-         <!-- <a href="#" class="btn btn-primary">Enroll</a> -->
     </div>
   </div>
    <div class="card mt-5"> 
@@ -77,7 +70,6 @@
             of the course </p>
 <p class="text-justify">  Our fees varies according to the student level.</p>  
         </p>
-     <!-- <a href="#" class="btn btn-primary">Enroll</a> -->
     </div>
   </div>
      <div class="card mt-5"> 
@@ -95,8 +87,7 @@
                </p>
                <p class="text-justify">  Our fees varies according to the student level.</p>  
              <p class="text-justify"> </p>
-     </p>
-      <!-- <a href="#" class="btn btn-primary">Enroll</a> -->
+     </p>  
     </div>
   </div>
    <div class="card mt-5"> 
@@ -112,57 +103,44 @@
             <p>Our school offers Jazz Dance classes for all the levels</p>
             <p class="text-justify">  Our fees varies according to the student level.</p>  
      </p>
-     <!-- <a href="#" class="btn btn-primary">Enroll</a> -->
     </div>
   </div>
 </div>
 
-     <!-- MENU REVIEW -->
+     <!-- MENU REVIEW - container -->
 
     <div class="container">
     <br>
         <div class="row">
                 <label><h4>Students Reviews:</h4></label>
             <div class="col-lg-4 text-left">
-                
-           <!-- <div class="col-lg-2"></div>
-           <div class="col-lg-1"></div>
-           <div class="col-lg-1"></div>-->
-              
-                      
-                        
-            </div>
+           </div>
            
          <!-- Display the input -->
            
             <div class="col-lg-12 text-justify"></div>
                 <ul class="list-group" id="display">                 
                 </ul>
-           <!--  <div class="col-lg-1"></div>-->
-        </div> 
+            </div> 
         <br>
   <!--  place holder to enter the review-->
         <form id="form">
                     <div class="form-group">
-               
-                    <textarea type="text" class="form-control" id="todoUserInput" placeholder="Enter your review"></textarea>
-                    <br>
-                    <div class="col-lg-3">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">Post</button>
-                    </div>
+                        <textarea type="text" class="form-control" id="todoUserInput" placeholder="Enter your review"></textarea>
+                        <br>
+                         <div class="col-lg-3">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Post</button>
+                        </div>
                     </div>
                 </form>
 
-     <!-- ALERT MESSAGE -->
+               <!-- ALERT MESSAGE -->
+
                   <div class="row">
-                           <!--  <div class="col-lg-2"></div>-->
-                           <!--  <div class="col-lg-12"></div> -->
-                                <div class="alert col-lg-12 text-center" role="alert" id="message">
-                                </div> 
-                             <!--  <div class="col-lg-2"></div>-->
+                        <div class="alert col-lg-12 text-center" role="alert" id="message">
                         </div> 
-        
-    </div>
+                    </div> 
+                 </div>
 
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -178,16 +156,16 @@
         const message = $("#message");
         message.hide();
 
-        //display alert msg
+        //DISPLAY ALERT MESSAGE
         const displayMessage = (flag,msg)=>{
-            //successful
+            //SUCCESSFUL MESSAGE DISPLAY
             if(flag){
                 message.removeClass('alert-danger');
                 message.addClass('alert-success');
                 message.html(msg);
                 message.show();
             }
-            //
+            //WORNG INPUT MESSAGE DISPLAY
             else{
 
                 message.removeClass('alert-success');
@@ -198,7 +176,7 @@
             }
             
         }
-
+    //GETTING ALL THE REVIEWS FROM THE DB FUNCTION
         const getTodos = ()=>{
             fetch('/getTodos',{method : "get"}).then((response)=>{
                 return response.json();
@@ -215,7 +193,7 @@
             todoUserInput.val('');
         }
 
-//update reviews function
+//UPDATE REVIEWS FUNCTION
 const editTodo = (todo,todoID,editID)=>{
     let editBtn = $(`${editID}`);
     editBtn.click(()=>{
@@ -237,8 +215,7 @@ const editTodo = (todo,todoID,editID)=>{
     })
 }
 
- //delete reviews function
-
+ //DELETE REVIEWS FUNCTION
 const deleteTodo = (todo,listItemID,deleteID)=>{
     let deleteBtn = $(`#${deleteID}`);
     deleteBtn.click(()=>{
@@ -252,9 +229,8 @@ const deleteTodo = (todo,listItemID,deleteID)=>{
         }
     });
 })
-
 }
-
+// BUILD THE TEMPLATE FOR THE REVIEWS
         const buildIDS = (todo)=>{
             return{
                 editID : "edit_" + todo._id,
@@ -277,7 +253,7 @@ const deleteTodo = (todo,listItemID,deleteID)=>{
                  </li>`;
         }
         
-//display the todos
+//DISPLAY ALL THE REVIEWS
 
 const displayTodos = (data)=>{
     data.forEach((todo)=>{
@@ -288,7 +264,7 @@ const displayTodos = (data)=>{
     });
 
     }
-
+    //POSTING THE INPUT FROM THE USER
     form.submit((e)=>{
         e.preventDefault();
         fetch('/',{
@@ -311,13 +287,8 @@ const displayTodos = (data)=>{
         } 
             else
                 displayMessage(false,data.error.message);
-           
-
-            resetTodosInput();
-            //location.reload(true); //reload tje page
-
-        });
-
+                 resetTodosInput();
+          });
     })
 
    });

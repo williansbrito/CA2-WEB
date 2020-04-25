@@ -9,7 +9,7 @@ const collection = "todo";
 const app = express();
 require('dotenv').config();
 
-mongoose = require('mongoose'); // test
+//mongoose = require('mongoose'); // test
 
 const schema =  Joi.object().keys({
     todo : Joi.string().required()
@@ -18,7 +18,7 @@ const schema =  Joi.object().keys({
 app.use(bodyParser.json());
 
 
-
+//get 
 app.get('/',(req,res) =>{
    res.sendFile(path.join(__dirname, 'index.html'));
 });
@@ -50,6 +50,8 @@ const userInput = req.body;
 
 });
 
+
+//post
 app.post('/', (req,res,next)=>{
 
     const userInput = req.body;
@@ -76,6 +78,7 @@ app.post('/', (req,res,next)=>{
 
 });
 
+//delete
 app.delete('/:id',(req,res)=>{
 
     const todoID = req.params.id;
@@ -110,7 +113,7 @@ app.post('/',(req,res)=>{
 
 });
  
-mongoose.connect(process.env.MONGO_URL);
+//mongoose.connect(process.env.MONGO_URL);
 db.connect((err)=>{
     if(err){
         console.log('unable to connect to the database');
